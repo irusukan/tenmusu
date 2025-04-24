@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/irusukan/tenmusu#readme",
   "dependencies": {
+    "asciify-image": "^0.1.10",
     "commander": "^13.1.0"
   }
 }
