@@ -1,0 +1,27 @@
+                                                      
+                                                      
+                                                      
+      ffffff                                          
+    ffffffffffffff                                    
+    ff  ffffffffffffGGGG                              
+  ff        ffffGGffGGGG;;;;;;                        
+          ;;GGGGGGGGGGGGGGtttt;;;;                    
+        ;;ttttGGGGGGGGGGttttffffff;;      LL          
+      ;;ffffttGGGGGGGGttttffffffffff;;    LL          
+    ;;ffffffffttttttttffffffffff@@ffffLLLLLLLLLL      
+  ;;ffffffffffffffffffffffffff@@ffffffff;;LL          
+  ;;ffffffffffffffffffffffff@@ffffffffffffLL          
+;;ffffffff@@ffffffffffffffffff@@@@ffffffff;;          
+;;ffffffff@@ffffffffffffffffffffff0000ffffff;;        
+;;ffffffff@@ffffffffffffffffffffffffffffffffff;;      
+;;ffff0000ffffffffffffffff;;;;;;;;ffffffffffff;;      
+;;ffffffffffff;;;;;;;;;;;;;;;;;;;;;;fffffffftttt;;    
+;;ttttffff;;;;1111;;;;;;;;;;;;;;;;;;;;fffftttttt;;    
+;;ttttttff;;11111111;;;;;;;;;;;;;;;;;;fftttttttt;;    
+;;tttttttt;;11111111;;;;;;;;;;;;;;;;;;;;tttttttt;;    
+  ;;tttttttt;;1111;;;;;;;;;;;;;;;;;;;;;;tttttttt;;    
+  ;;tttttttt;;;;;;;;11;;;;;;;;;;;;;;;;;;tttt;;;;      
+    ;;tttttttt;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;          
+  ;;ff;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ff;;        
+  ;;ffffffff;;                    ;;ffffffff;;        
+    ;;;;;;;;                        ;;;;;;;;          
