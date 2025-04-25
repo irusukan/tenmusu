@@ -17,15 +17,16 @@ const asciiMap = {
 
 program
     .version('1.0.0')
-    .option('-h, --hello', 'Show hello(normal) tenmusu-kun')
-    .option('-s, --smile', 'Show smile tenmusu-kun')
-    .option('-g, --sing', 'Show singing tenmusu-kun')
-    .option('-j, --jump', 'Show jumping tenmusu-kun')
-    .option('-k, --wink', 'Show wink tenmusu-kun')
-    .option('-d, --sad', 'Show sad tenmusu-kun')
-    .option('-y, --apology', 'Show apologizing tenmusu-kun')
-    .option('-r, --run', 'Show running tenmusu-kun')
-    .option('-x, --excl', 'Show ! tenmusu-kun')
+    .argument('[name]', 'hello: Show hello(normal) tenmusu-kun \n\
+                      smile: Show smile tenmusu-kun\n\
+                      sing: Show singing tenmusu-kun\n\
+                      jump: Show jumping tenmusu-kun\n\
+                      wink: Show wink tenmusu-kun\n\
+                      sad: Show sad tenmusu-kun\n\
+                      apology: Show apologizing tenmusu-kun\n\
+                      run: Show running tenmusu-kun\n\
+                      excl: Show ! tenmusu-kun\n\
+                      ')
     
     // default width = 30
     .option('-w, --width <number>', 'Output width in characters (10, 20, 30)', '30');
@@ -33,6 +34,8 @@ program
 program.parse(process.argv);
 
 const options = program.opts();
+// get arguments name
+const [name] = program.args;
 
 function displayAsciiArt(name, width) {
     const validWidths = ['10', '20', '30'];
@@ -52,15 +55,18 @@ function displayAsciiArt(name, width) {
 }
 
 let displayed = false;
-for (const [key, name] of Object.entries(asciiMap)) {
-    if (options[key]) {
-        displayAsciiArt(name, options.width);
+
+// check arguments
+if (name){
+    if (asciiMap[name]) {
+        displayAsciiArt(asciiMap[name], options.width);
         displayed = true;
-        break;
+    } else {
+        console.error(`Invalid ASCII art name: ${name}. Use hello, smile, etc.`);
+        process.exit(1);
     }
-}
-
-
-if (!displayed) {
-    console.log('Please specify an option. Use --help for details.');
+}else{
+    // no arguments
+    console.error('Please specify an ASCII art name (e.g., "tenmusu hello"). Use --help for details.');
+    process.exit(1);
 }
