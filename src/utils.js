@@ -16,17 +16,23 @@ function displayAsciiArt(name, width) {
 }
 
 // Create a speech bubble if "message" is included in the arguments
-function createSpeechBubble(message, width) {
+function createSpeechBubble(message, optionsWidth) {
     if (message){
-    const minBubbleWidth = 4;
-    const bubbleWidth = Math.max(message.length, minBubbleWidth); // Set the width based on the message length
+    const bubbleWidth = message.length; // Set the width based on the message length
 
     // Speech bubble
     const topBorder = '_'.repeat(bubbleWidth + 4);
     const bottomBorder = '-'.repeat(bubbleWidth + 4);
     const indent = ' '.repeat(Math.max(0, bubbleWidth - bubbleWidth/2)); 
-    const tail = `${indent}\\ \n${indent} \\ \n${indent} \\ \n${indent} \\`;
 
+    let tail = '';
+    if (bubbleWidth < optionsWidth * 2){
+        // If message length is less than twice the options width, create "\" tails
+        tail = `${indent}\\ \n${indent} \\ \n${indent} \\ \n${indent} \\`;
+    } else {
+        // If message length is greater than twice the options width, create "/" tails
+        tail = `${indent}\/ \n${indent} \/ \n${indent} \/ \n${indent} \/`;
+    }
     const paddedMessage = message.padEnd(bubbleWidth);
     return `${topBorder}\n< ${paddedMessage} >\n${bottomBorder}\n ${tail} \n`;
 
