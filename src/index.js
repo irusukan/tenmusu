@@ -45,17 +45,17 @@ const options = program.opts();
 if (name){
     if (asciiMap[name]) {
         const asciiArt = displayAsciiArt(asciiMap[name], options.width);
-        if(!asciiArt){
+        if (!asciiArt){
             process.exit(1);
         }
 
         const bubble = createSpeechBubble(message, parseInt(options.width));
         console.log(bubble + asciiArt);
     } else {
-        console.error(`Invalid ASCII art name: ${name}. Use hello, smile, etc.`);
+        console.error(`Invalid ASCII art name: ${name}. Use hello, smile, etc. Use --help for details.`);
         process.exit(1);
     }
-}else{
+} else {
     // No arguments
     console.error('Please specify an ASCII art name (e.g., "tenmusu hello"). Use --help for details.');
     process.exit(1);
