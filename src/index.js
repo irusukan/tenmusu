@@ -27,15 +27,39 @@ program
                       run: Show running tenmusu-kun\n\
                       excl: Show ! tenmusu-kun\n\
                       ')
+    .argument('[message]', 'tenmusu-kun say "message"')
     
-    // default width = 30
+    // Default width = 30
     .option('-w, --width <number>', 'Output width in characters (10, 20, 30)', '30');
 
 program.parse(process.argv);
 
+// Extract name (first argument) and message (second argument) from arguments
+const [name, message] = program.args;
+
+// Extract options
 const options = program.opts();
-// get arguments name
-const [name] = program.args;
+
+
+// Create a speech bubble if "message" is included in the arguments
+function createSpeechBubble(message, width) {
+    if (message){
+    const minBubbleWidth = 4;
+    const bubbleWidth = Math.max(message.length, minBubbleWidth); // Set the width based on the message length
+
+    // Speech bubble
+    const topBorder = '_'.repeat(bubbleWidth + 4);
+    const bottomBorder = '-'.repeat(bubbleWidth + 4);
+    const indent = ' '.repeat(Math.max(0, bubbleWidth - 4)); 
+    const tail = `${indent}\\ \n${indent} \\ \n${indent} \\ \n${indent} \\`;
+
+    const paddedMessage = message.padEnd(bubbleWidth);
+    return `${topBorder}\n< ${paddedMessage} >\n${bottomBorder}\n ${tail} \n`;
+
+    } else {
+        return '';
+    }
+}
 
 function displayAsciiArt(name, width) {
     const validWidths = ['10', '20', '30'];
@@ -50,23 +74,25 @@ function displayAsciiArt(name, width) {
         return;
     }
 
-    const ascii = fs.readFileSync(filePath, 'utf8');
-    console.log(ascii);
+    return fs.readFileSync(filePath, 'utf8');
 }
 
-let displayed = false;
-
-// check arguments
+// Check arguments
 if (name){
     if (asciiMap[name]) {
-        displayAsciiArt(asciiMap[name], options.width);
-        displayed = true;
+        const asciiArt = displayAsciiArt(asciiMap[name], options.width);
+        if(!asciiArt){
+            process.exit(1);
+        }
+
+        const bubble = createSpeechBubble(message, parseInt(options.width));
+        console.log(bubble + asciiArt);
     } else {
         console.error(`Invalid ASCII art name: ${name}. Use hello, smile, etc.`);
         process.exit(1);
     }
 }else{
-    // no arguments
+    // No arguments
     console.error('Please specify an ASCII art name (e.g., "tenmusu hello"). Use --help for details.');
     process.exit(1);
 }
