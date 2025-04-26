@@ -18,20 +18,20 @@ const asciiMap = {
 
 program
     .version('1.0.0')
-    .argument('[name]', 'hello: Show hello(normal) tenmusu-kun \n\
-                      smile: Show smile tenmusu-kun\n\
-                      sing: Show singing tenmusu-kun\n\
-                      jump: Show jumping tenmusu-kun\n\
-                      wink: Show wink tenmusu-kun\n\
-                      sad: Show sad tenmusu-kun\n\
-                      apology: Show apologizing tenmusu-kun\n\
-                      run: Show running tenmusu-kun\n\
-                      excl: Show ! tenmusu-kun\n\
+    .argument('[name]', 'hello: show hello(normal) tenmusu-kun \n\
+                      smile: show smile tenmusu-kun\n\
+                      sing: show singing tenmusu-kun\n\
+                      jump: show jumping tenmusu-kun\n\
+                      wink: show wink tenmusu-kun\n\
+                      sad: show sad tenmusu-kun\n\
+                      apology: show apologizing tenmusu-kun\n\
+                      run: show running tenmusu-kun\n\
+                      excl: show ! tenmusu-kun\n\
                       ')
     .argument('[message]', 'tenmusu-kun say "message"')
     
     // Default width = 30
-    .option('-w, --width <number>', 'Output width in characters (10, 20, 30)', '30');
+    .option('-w, --width <number>', 'output width in characters (10, 20, 30)', '30');
 
 program.parse(process.argv);
 
